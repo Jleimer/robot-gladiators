@@ -74,7 +74,7 @@ var fight = function (enemy) {
 }
 
 var startGame = function () {
-  // reset player stats
+  // reset player stats 
  playerInfo.reset();
   for (var i = 0; i <enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
@@ -144,7 +144,6 @@ var shop = function() {
     playerInfo.upgradeAttack();
     break;
   
-      break;
     case "LEAVE": // new case
     case "leave":
       window.alert("Leaving the store.");
@@ -156,8 +155,25 @@ var shop = function() {
   }
 };
 
+// function to set name
+var getPlayerName = function() {
+  var name = "";
+
+// ***************************************
+// ADD LOOP HERE WITH PROMPT AND CONDITION
+// ***************************************
+
+  console.log("Your robot's name is " + name);
+  return name;
+
+};
+
+while (name === "" || name === null) {
+  name = prompt("What is your robot's name?");
+}
+ 
 var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10,
   money: 10,
@@ -185,6 +201,7 @@ upgradeAttack: function() {
   else {
     window.alert("You don't have enough money!");
   }
+}
 }
 
 var enemyInfo = [
