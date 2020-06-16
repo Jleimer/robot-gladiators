@@ -39,7 +39,12 @@ var fightOrSkip = function() {
   return false;
 }
 var fight = function (enemy) {
+  var isPlayerTurn = true;
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
   while (playerInfo.health >= 0 && enemy.health >= 0) {
+    if (isPlayerTurn) {
      // <-- Replace code with this function call
     if (fightOrSkip()) {
      //if true, leave fight by breaking loop
@@ -85,7 +90,9 @@ var fight = function (enemy) {
       window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
     }
   }
-}
+  isPlayerTurn = !isPlayerTurn;
+  }
+};
 
 var startGame = function () {
   // reset player stats 
